@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora logica</title>
+</head>
+<body>
+    {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+    {% endfor %}
+    {% if table and not val %}
+       
+        <form action="/valuation" method="POST"> 
+            <label>Ingrese sus argumetos:</label>
+            <input name="args" type="text" value="{{args}}" required readonly>
+            <label>Ingrese su expresion:</label>
+            <input name="exp" type="text" value="{{exp}}" required  readonly>
+            {{table|safe}}
+            <label>¿Desea saber si tautologia, contradiccion o contingencia?</label>
+            <label>seleccione la columna a evaluar</label>
+            <input name="col" type="number" placeholder="1" required>
+            <button type="submit">evaluar</button>
+        </form>
+    {% elif not table and not val %}
+        <form action="/calcular" method="POST"> 
+            <label>Ingrese sus argumetos:</label>
+            <input name="args" type="text" placeholder="p,q,r,s" required >
+            <label>Ingrese su expresion:</label>
+            <input name="exp" type="text" placeholder="p^q=>r" required >
+            <button type="submit">Enviar</button>
+        </form>
+    {% elif table and val %}
+       
+        <form action="/valuation" method="POST"> 
+            <label>Ingrese sus argumetos:</label>
+            <input name="args" type="text" value="{{args}}" required readonly>
+            <label>Ingrese su expresion:</label>
+            <input name="exp" type="text" value="{{exp}}" required readonly>
+            {{table|safe}}
+            <label>Es una : {{val}}</label>
+            <label>¿Desea evaluar otra columna?</label>
+            <label>seleccione la columna a evaluar</label>
+            <input name="col" type="number" placeholder="1" required>
+            <button type="submit">evaluar</button>
+        </form>
+        
+    {% endif %}
+    <a href="/">Reiniciar</a>
+</body>
+</html>
