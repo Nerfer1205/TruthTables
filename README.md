@@ -1,15 +1,17 @@
 # TruthTables
-Dependencias: 
-Flask==2.0.1
 
-Crear entorno virtual:
+# Dependencias: 
+Flask==2.0.1
+truth-table-generator==1.1.2
+
+# Crear entorno virtual:
 virtualenv env
 
-Activar entorno virtual:
+# Activar entorno virtual:
 env\Scripts\activate.bat  (Windows)
 source env/bin/activate  (GNU Linux)
 
-Instalar dependencias:
+# Instalar dependencias:
 pip install truth-table-generator
 pip install flask
 
