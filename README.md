@@ -16,8 +16,8 @@ pip install truth-table-generator
 pip install flask
 
 # Actualiza la variable, será la App que iniciará el Servidor Web:
-set FLASK_APP=hola (Windows)
-export FLASK_APP=hola (GNU Linux)
+set FLASK_APP=app.py (Windows)
+export FLASK_APP=app.py (GNU Linux)
 
 # Actualiza la variable, se ejecutará en modo desarrollo el Servidor Web:
 set FLASK_ENV=development    (Windows)
